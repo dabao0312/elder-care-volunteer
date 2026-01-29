@@ -1,0 +1,9 @@
+主机: localhost
+端口: 3306
+数据库/模式: （留空或填写存在的数据库名）
+用户名: root
+密码: Root@123456（你设置的密码）
+
+GO语言专用的数据库账号密码：
+CREATE USER 'appuser'@'localhost'
+IDENTIFIED BY 'app_pass_123';
