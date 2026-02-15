@@ -8,6 +8,7 @@ type VolunteerProfile struct {
 	Address   string    `gorm:"column:address"`
 	Latitude  float64   `gorm:"column:latitude"`
 	Longitude float64   `gorm:"column:longitude"`
+	Available int       `gorm:"column:available"`
 	CreatedAt time.Time `gorm:"column:created_at"`
 }
 

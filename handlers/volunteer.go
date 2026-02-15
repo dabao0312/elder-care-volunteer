@@ -60,3 +60,22 @@ func RegisterVolunteer(db *gorm.DB) gin.HandlerFunc {
 		c.JSON(http.StatusOK, gin.H{"message": "volunteer registered successfully"})
 	}
 }
+
+func ListAvailableVolunteers(db *gorm.DB) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		var volunteers []models.VolunteerProfile
+
+		err := db.
+			Where("available = ?", 1).
+			Find(&volunteers).Error
+
+		if err != nil {
+			c.JSON(500, gin.H{
+				"error": err.Error(),
+			})
+			return
+		}
+
+		c.JSON(200, volunteers)
+	}
+}
